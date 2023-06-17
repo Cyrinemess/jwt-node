@@ -3,6 +3,7 @@ require("dotenv/config");
 const jwtConfig = {
   privateKey: process.env.PRIVATE_KEY.replace(/\\n/g, "\n"),
   publicKey: process.env.PUBLIC_KEY.replace(/\\n/g, "\n"),
+  accessTokenExperationPeriod: process.env.JWT_ACESSS_EXPERATION_PERIOD,
 };
 
 const serverConfig = {
