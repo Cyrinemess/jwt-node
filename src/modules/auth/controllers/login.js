@@ -1,6 +1,6 @@
 const user = require("../../../data/models/user.model");
 const bcrypt = require("bcryptjs");
-const createJwtToken = require("../utils/token");
+const { createJwtAccessToken } = require("../utils/token");
 
 const loginUser = async (req, res, next) => {
   try {
@@ -12,9 +12,11 @@ const loginUser = async (req, res, next) => {
         req.body.password,
         foundUser?.password
       );
+      console.log(createJwtAccessToken);
       if (isPasswordCorrect) {
         delete foundUser._doc.password;
-        const token = await createJwtToken(foundUser);
+
+        const token = await createJwtAccessToken(foundUser);
         console.log(token);
         return res.status(200).send({
           message: "User Logged In Successfully",
