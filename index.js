@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv/config");
 const { DATABASE_CONFIG, SERVER_CONFIG, JWT_CONFIG } = require("./config");
 
@@ -11,6 +12,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+
 app.use(authRoute);
 
 app.get("/", (req, res) => {

@@ -6,7 +6,7 @@ const jwtConfig = {
   accessTokenExpirationPeriod: process.env.JWT_ACCESS_EXPIRATION_PERIOD,
   refreshTokenExpirationPeriod: process.env.JWT_REFRESH_EXPIRATION_PERIOD,
 };
-
+const REFRESH_COOKIE_NAME = "rtk";
 const serverConfig = {
   port: process.env.PORT,
 };

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { JWT_CONFIG } = require("../../../../config");
 
-const createJwtToken = async (user, expirationPeriod) => {
+const createJwtToken = (user, expirationPeriod) => {
   var token = jwt.sign(
     {
       sub: { id: user._id, name: user.fullName },
